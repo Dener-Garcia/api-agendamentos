@@ -1,5 +1,3 @@
-import { fileURLToPath } from 'url';  // Importa a função para converter URL em caminho de arquivo
-import path from 'path';  // Importa o módulo path
 import sqlite3 from 'sqlite3'
 
 const SQLite = sqlite3.verbose()
@@ -27,9 +25,8 @@ function query(command, params, method = 'all') {
 }
 
 // Obtém o diretório atual do arquivo
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const dbPath = path.join(__dirname, 'src', 'database', 'database.db');
+
+const dbPath = './src/database/database'
 
 const db = new SQLite.Database(dbPath, SQLite.OPEN_READWRITE | SQLite.OPEN_CREATE, (err) => {
     if (err) {
