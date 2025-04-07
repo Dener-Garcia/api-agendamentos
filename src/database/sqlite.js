@@ -1,5 +1,4 @@
 import sqlite3 from 'sqlite3'
-
 const SQLite = sqlite3.verbose()
 
 // funcao com promisse para facilitar querys e usar async await
@@ -37,6 +36,5 @@ const db = new SQLite.Database(dbPath, SQLite.OPEN_READWRITE | SQLite.OPEN_CREAT
 })
 
 export { 
-    db,
     query
  }
