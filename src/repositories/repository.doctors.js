@@ -1,7 +1,7 @@
 import { query } from '../database/sqlite.js'
 
 async function getDoctors(name) {
-    
+
 
 
     let sqlQuery
@@ -22,12 +22,12 @@ async function getDoctors(name) {
     }
 
     const doctors = query(sqlQuery, filter)
-    
+
     return doctors
 }
 
 async function insertDoctor(doctorData) {
- 
+
     let sqlQuery = `
         INSERT INTO doctors(name, specialty, icon) VALUES (?, ?, ?)
         RETURNING id_doctor, name
@@ -40,29 +40,27 @@ async function insertDoctor(doctorData) {
 
 async function updateDoctor(doctorData) {
 
-    
     let sqlQuery = `
     UPDATE doctors
     SET name = ?, specialty = ?, icon = ?
     WHERE id_doctor = ?
     `
-    
+
     const doctor = await query(sqlQuery, doctorData)
-    
+
     return { doctorData }
 }
 
 async function deleteDoctor(id_doctor) {
 
-    
     let sqlQuery = `
     DELETE FROM doctors
     WHERE id_doctor = ?
     `
-    
+
     const doctor = await query(sqlQuery, [id_doctor])
-    
-    return {id_doctor}
+
+    return { id_doctor }
 }
 
 export default {

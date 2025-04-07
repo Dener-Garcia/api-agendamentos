@@ -1,5 +1,6 @@
 import { Router } from "express";
 import controllerDoctors from "./controllers/controller.doctor.js";
+import controllerUsers from "./controllers/controller.users.js";
 
 const router = Router()
 
@@ -12,7 +13,7 @@ router.delete("/doctors/:id_doctor", controllerDoctors.deleteDoctor)
 // services
 
 // users
-
+router.post("/users/register", controllerUsers.insertUser)
 // appointments
 
 export default router
