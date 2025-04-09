@@ -2,8 +2,6 @@ import { query } from '../database/sqlite.js'
 
 async function getDoctors(name) {
 
-
-
     let sqlQuery
     let filter = []
 
@@ -21,7 +19,7 @@ async function getDoctors(name) {
     `
     }
 
-    const doctors = query(sqlQuery, filter)
+    const doctors = await query(sqlQuery, filter)
 
     return doctors
 }
@@ -35,7 +33,7 @@ async function insertDoctor(doctorData) {
 
     const doctor = await query(sqlQuery, doctorData)
 
-    return doctor
+    return doctor[0]
 }
 
 async function updateDoctor(doctorData) {

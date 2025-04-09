@@ -13,7 +13,10 @@ router.delete("/doctors/:id_doctor", controllerDoctors.deleteDoctor)
 // services
 
 // users
+router.get("/users", controllerUsers.getUser)
 router.post("/users/register", controllerUsers.insertUser)
+router.post("/users/login", controllerUsers.getUser)
+
 // appointments
 
 export default router

@@ -1,0 +1,179 @@
+type: collection.insomnia.rest/5.0
+name: Agenda ai
+meta:
+  id: wrk_c440888ca2e54e23a1756e166fdcf8d4
+  created: 1743986948673
+  modified: 1743986948673
+collection:
+  - name: Doctors
+    meta:
+      id: fld_d3d6a65118ec42f78008522892479d68
+      created: 1743987305925
+      modified: 1743988646837
+      sortKey: -1743987305925
+    children:
+      - url: http://144.22.160.3:3003/doctors
+        name: Doctors with filter query params
+        meta:
+          id: req_d374865b0d5c4a2a8e3f48b1ef0a4de8
+          created: 1743881964262
+          modified: 1743988664960
+          isPrivate: false
+          sortKey: -1743987314507
+        method: GET
+        parameters:
+          - name: name
+            value: Paulo
+            disabled: true
+            id: pair_b19b088009c34974a36c279afcf2fa14
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://144.22.160.3:3003/doctors
+        name: Doctors create a new
+        meta:
+          id: req_b7bf70fd524744bdbf7e709047aedcb2
+          created: 1743980242834
+          modified: 1743988656609
+          isPrivate: false
+          sortKey: -1743987314607
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name" : "Dra Paulo Alcantara",
+            	"specialty" : "Clinico geral",
+            	"icon" : "F"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://144.22.160.3:3003/doctors/3
+        name: Doctors update a doctor
+        meta:
+          id: req_a847cab907e546abb70174f00e0fac65
+          created: 1743981773208
+          modified: 1743988668973
+          isPrivate: false
+          sortKey: -1743987314407
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            	{
+            		"name": "Dra Roberta Prodente",
+            		"specialty": "Clinico geral",
+            		"icon": "F"
+            	}
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://144.22.160.3:3003/doctors/1
+        name: Doctors delete a doctor
+        meta:
+          id: req_8a2eae6657c94f2781a7a6483fabc5ca
+          created: 1743984391077
+          modified: 1743988677987
+          isPrivate: false
+          sortKey: -1743987314107
+        method: DELETE
+        body:
+          mimeType: application/json
+          text: |-
+            	{
+            		"name": "Dra Roberta Prodente",
+            		"specialty": "Clinico geral",
+            		"icon": "F"
+            	}
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Users
+    meta:
+      id: fld_d94af39dc5ff4c9987823298678ac68f
+      created: 1743987332507
+      modified: 1743987332507
+      sortKey: -1743987332507
+    children:
+      - url: http://144.22.160.3:3003/users/register
+        name: Users create a new
+        meta:
+          id: req_18b8f19d11e9404cbc1945b72bf88753
+          created: 1743987338196
+          modified: 1743987544390
+          isPrivate: false
+          sortKey: -1743987342518
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name" : "Dener",
+            	"email" : "teste@gmail.com",
+            	"password" : "dfak;123"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_5705e3dd94824cb83f339adb864af1cfd1360d94
+    created: 1743986948676
+    modified: 1743986948676
+environments:
+  name: Base Environment
+  meta:
+    id: env_5705e3dd94824cb83f339adb864af1cfd1360d94
+    created: 1743986948675
+    modified: 1743986948675
+    isPrivate: false
