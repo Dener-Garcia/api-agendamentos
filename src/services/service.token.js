@@ -4,9 +4,7 @@ const privateKey = "MinhaChave123"
 
 function createToken(idUser) {
 
-    const token = jwt.sign(idUser, privateKey, {
-        expiresIn: "2 days"
-    })
+    const token = jwt.sign({ idUser }, privateKey, { expiresIn: "7 days" })
 
     return token
 }

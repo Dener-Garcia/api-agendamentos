@@ -1,5 +1,6 @@
 import repositoryUsers from "../repositories/repository.users.js"
 import bcrypt from 'bcrypt'
+import serviceToken from "./service.token.js"
 
 async function getUser(email, password) {
 
@@ -10,7 +11,8 @@ async function getUser(email, password) {
     if (user.length == 0 || !checkPassword) {
         return []
     } else {
-        user.token = "abc"
+        const token = serviceToken.createToken(user.id_user)
+        user.token = token
         return user
     }
 }
@@ -18,12 +20,12 @@ async function getUser(email, password) {
 async function insertUser(name, email, password) {
 
     const hashPassword = await bcrypt.hash(password, 10)
-
     const userData = [name, email, hashPassword]
 
     const user = await repositoryUsers.insertUser(userData)
 
-    user.token = "abc1"
+    const token = serviceToken.createToken(user.id_user)
+    user.token = token
 
     return user
 }

@@ -15,14 +15,14 @@ function validateToken(req, res, next) {
 
     jwt.verify(token, privateKey, (error, decodedToken) => {
         if (error) {
-            return res.status(401).json({error: "Token invalido"})
+            return res.status(401).json({ error: "Token invalido" })
         }
 
         // passando o idUser para o req do controller
 
         req.idUser = decodedToken.idUser
-            
-            next()
+
+        next()
     })
 
 }
