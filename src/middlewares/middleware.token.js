@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken'
-import { privateKey } from '../services/service.token.js'
+import serviceToken from '../services/service.token.js'
 
 function validateToken(req, res, next) {
     const authToken = req.headers.authorization // "Bearer tokenString"
@@ -11,9 +11,7 @@ function validateToken(req, res, next) {
     // extract token with destruct array bearer = bearer, token = token string
     const [bearer, token] = authToken.split(" ")
 
-    console.log(authToken, bearer, token)
-
-    jwt.verify(token, privateKey, (error, decodedToken) => {
+    jwt.verify(token, serviceToken.privateKey, (error, decodedToken) => {
         if (error) {
             return res.status(401).json({ error: "Token invalido" })
         }
