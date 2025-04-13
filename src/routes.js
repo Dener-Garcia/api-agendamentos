@@ -26,5 +26,6 @@ router.get("/users/profile", middlewareToken.validateToken, controllerUsers.getP
 // appointments
 router.get("/appointments", middlewareToken.validateToken, controllerAppointments.getUserAppointments)
 router.post("/appointments", middlewareToken.validateToken, controllerAppointments.insertAppointment)
+router.delete("/appointments/:id_appointment", middlewareToken.validateToken, controllerAppointments.deleteAppointment)
 
 export default router

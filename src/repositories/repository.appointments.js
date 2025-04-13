@@ -39,7 +39,21 @@ async function getUserAppointments(idUser) {
     return appointments
 }
 
+async function deleteAppointment(idUser, id_appointment) {
+    const sqlQuery = `
+        DELETE FROM appointments 
+        WHERE id_appointment = ? 
+        AND id_user = ?
+    `
+
+    const deleteAppointment = query(sqlQuery, [id_appointment, idUser])
+
+    return id_appointment
+
+}
+
 export default {
     getUserAppointments,
-    insertAppointment
+    insertAppointment,
+    deleteAppointment
 }

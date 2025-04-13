@@ -16,7 +16,16 @@ async function getUserAppointments(req, res) {
     res.status(200).json(appointments)
 }
 
+async function deleteAppointment(req, res) {
+    const { idUser } = req
+    const { id_appointment } = req.params
+
+    const deleteAppointment = await serviceAppointments.deleteAppointment(idUser, id_appointment)
+    res.status(200).json(deleteAppointment)
+}
+
 export default {
     getUserAppointments,
-    insertAppointment
+    insertAppointment,
+    deleteAppointment
 }
