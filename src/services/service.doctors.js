@@ -31,9 +31,18 @@ async function deleteDoctor(id_doctor) {
     return doctor
 }
 
+async function getServices(idDoctor) {
+    const services = await repositoriyDoctors.getServices(idDoctor)
+
+    return services
+    
+}
+
 export default {
     getDoctors,
     insertDoctor,
     updateDoctor,
     deleteDoctor,
+
+    getServices,
 }

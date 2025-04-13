@@ -28,7 +28,21 @@ async function insertUser(userData) {
     return user[0]
 }
 
+async function getProfile(userId) {
+    let sqlQuery = `
+        SELECT name, email 
+        FROM users 
+        WHERE id_user = ?
+    `
+
+    const profile = await query(sqlQuery, [userId])
+    return profile[0]
+}
+
+
+
 export default {
     insertUser,
-    getUser
+    getUser,
+    getProfile
 }

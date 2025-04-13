@@ -9,15 +9,15 @@ collection:
     meta:
       id: fld_d3d6a65118ec42f78008522892479d68
       created: 1743987305925
-      modified: 1743988646837
-      sortKey: -1743987305925
+      modified: 1744563290935
+      sortKey: -1743987325861.5
     children:
       - url: http://144.22.160.3:3003/doctors
         name: Doctors with filter query params
         meta:
           id: req_d374865b0d5c4a2a8e3f48b1ef0a4de8
           created: 1743881964262
-          modified: 1743988664960
+          modified: 1744330491543
           isPrivate: false
           sortKey: -1743987314507
         method: GET
@@ -29,6 +29,10 @@ collection:
         headers:
           - name: User-Agent
             value: insomnia/11.0.1
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzZXIiOjE2LCJpYXQiOjE3NDQzMzAzNTEsImV4cCI6MTc0NDkzNTE1MX0.VrW0_u6fzA4eIVRFFulsdK_tPNNcEwjpNR4ZO6WGejk
+          disabled: false
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -42,7 +46,7 @@ collection:
         meta:
           id: req_b7bf70fd524744bdbf7e709047aedcb2
           created: 1743980242834
-          modified: 1743988656609
+          modified: 1744484381774
           isPrivate: false
           sortKey: -1743987314607
         method: POST
@@ -50,8 +54,8 @@ collection:
           mimeType: application/json
           text: |-
             {
-            	"name" : "Dra Paulo Alcantara",
-            	"specialty" : "Clinico geral",
+            	"name" : "Dra Mara Nobre",
+            	"specialty" : "Neurocirurgia",
             	"icon" : "F"
             }
         headers:
@@ -127,11 +131,35 @@ collection:
             send: true
             store: true
           rebuildPath: true
+      - url: http://144.22.160.3:3003/doctors/12/service
+        name: Doctors get services
+        meta:
+          id: req_2a4eede7d16a4eb7bf8d675608b151d3
+          created: 1744487068266
+          modified: 1744505755659
+          isPrivate: false
+          sortKey: -1743987314007
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.1
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzZXIiOjE2LCJpYXQiOjE3NDQ1MDU2OTYsImV4cCI6MTc0NTExMDQ5Nn0.sZjVz9KOe1W6_mtaMimO4oU-K2U_dfbVANiXqOVPwcU
+          disabled: true
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
   - name: Users
     meta:
       id: fld_d94af39dc5ff4c9987823298678ac68f
       created: 1743987332507
-      modified: 1743987332507
+      modified: 1744482895155
       sortKey: -1743987332507
     children:
       - url: http://144.22.160.3:3003/users/register
@@ -139,7 +167,7 @@ collection:
         meta:
           id: req_18b8f19d11e9404cbc1945b72bf88753
           created: 1743987338196
-          modified: 1743987544390
+          modified: 1744327481604
           isPrivate: false
           sortKey: -1743987342518
         method: POST
@@ -147,15 +175,131 @@ collection:
           mimeType: application/json
           text: |-
             {
-            	"name" : "Dener",
-            	"email" : "teste@gmail.com",
-            	"password" : "dfak;123"
+            	"name" : "a",
+            	"email" : "a@gmail.com",
+            	"password" : "a"
             }
         headers:
           - name: Content-Type
             value: application/json
           - name: User-Agent
             value: insomnia/11.0.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://144.22.160.3:3003/users/login
+        name: Users login
+        meta:
+          id: req_a081bbb41a2a4b759a0f418ce484143c
+          created: 1744327358198
+          modified: 1744556823564
+          isPrivate: false
+          sortKey: -1743987342618
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"email" : "dag11@gmail.com",
+            	"password" : "dag"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://144.22.160.3:3003/users/profile
+        name: Users profile
+        meta:
+          id: req_af001ba8f2e549deb67b53d5b9ae558b
+          created: 1744565382717
+          modified: 1744565566711
+          isPrivate: false
+          sortKey: -1743987342418
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.1
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzZXIiOjE4LCJpYXQiOjE3NDQ1NTY4MjQsImV4cCI6MTc0NTE2MTYyNH0._fSaA3aooqf2Tyr3CySDz3xwrpc-W3G3cjJY2yj516g
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Appointments
+    meta:
+      id: fld_7df906f918c04fa4ac4cc42210e48752
+      created: 1744500253964
+      modified: 1744563288446
+      sortKey: -1743987319216
+    children:
+      - url: http://144.22.160.3:3003/appointments/
+        name: Appointment user appointments
+        meta:
+          id: req_e8dad7cf57714423a9d243db8a34184e
+          created: 1744500272467
+          modified: 1744563267841
+          isPrivate: false
+          sortKey: -1744500272467
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.1
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzZXIiOjE4LCJpYXQiOjE3NDQ1NTY4MjQsImV4cCI6MTc0NTE2MTYyNH0._fSaA3aooqf2Tyr3CySDz3xwrpc-W3G3cjJY2yj516g
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://144.22.160.3:3003/appointments/
+        name: Appointment create a new
+        meta:
+          id: req_4115bbbba9d64d01beffcf39d9405230
+          created: 1744562826063
+          modified: 1744563333644
+          isPrivate: false
+          sortKey: -1744491585901.5
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id_doctor": 11,
+            	"id_service": 2,
+            	"booking_date": "2025-10-21",
+            	"booking_hour": "12:23"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.1
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzZXIiOjE4LCJpYXQiOjE3NDQ1NTY4MjQsImV4cCI6MTc0NTE2MTYyNH0._fSaA3aooqf2Tyr3CySDz3xwrpc-W3G3cjJY2yj516g
         settings:
           renderRequestBody: true
           encodeUrl: true

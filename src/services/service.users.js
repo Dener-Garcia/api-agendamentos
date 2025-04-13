@@ -30,7 +30,13 @@ async function insertUser(name, email, password) {
     return user
 }
 
+async function getProfile(idUser) {
+    const profile = await repositoryUsers.getProfile(idUser)
+    return profile
+}
+
 export default {
     insertUser,
-    getUser
+    getUser,
+    getProfile
 }

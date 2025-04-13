@@ -56,7 +56,7 @@ booking_date DATE,
 booking_hour VARCHAR(5),
 
 Foreign Key (id_doctor) REFERENCES doctors(id_doctor),
-Foreign Key (id_service) REFERENCES service(id_service),
+Foreign Key (id_service) REFERENCES services(id_services),
 Foreign Key (id_user) REFERENCES users(id_user)
 );`}
 ]

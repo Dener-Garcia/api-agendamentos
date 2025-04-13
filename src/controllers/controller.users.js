@@ -29,7 +29,15 @@ async function insertUser(req, res) {
 
 }
 
+async function getProfile(req, res) {
+    const { idUser } = req
+
+    const profile = await serviceUsers.getProfile(idUser)
+    res.status(200).json(profile)
+}
+
 export default {
     insertUser,
-    getUser
+    getUser,
+    getProfile
 }
