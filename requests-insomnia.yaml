@@ -256,9 +256,9 @@ collection:
         meta:
           id: req_e8dad7cf57714423a9d243db8a34184e
           created: 1744500272467
-          modified: 1744563267841
+          modified: 1744567788121
           isPrivate: false
-          sortKey: -1744500272467
+          sortKey: -1744491585851.5
         method: GET
         headers:
           - name: User-Agent
@@ -295,6 +295,29 @@ collection:
         headers:
           - name: Content-Type
             value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.1
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzZXIiOjE4LCJpYXQiOjE3NDQ1NTY4MjQsImV4cCI6MTc0NTE2MTYyNH0._fSaA3aooqf2Tyr3CySDz3xwrpc-W3G3cjJY2yj516g
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://144.22.160.3:3003/appointments/11
+        name: Appointment user appointments
+        meta:
+          id: req_f475b8883bbb4b59a6194984e41420f6
+          created: 1744567494840
+          modified: 1744567786639
+          isPrivate: false
+          sortKey: -1744491585801.5
+        method: DELETE
+        headers:
           - name: User-Agent
             value: insomnia/11.0.1
         authentication:
