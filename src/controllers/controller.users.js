@@ -5,6 +5,8 @@ async function getUser(req, res) {
 
     const { email, password } = req.body
 
+    console.log(email, password)
+
     const user = await serviceUsers.getUser(email, password)
 
     if (user.length == 0) {

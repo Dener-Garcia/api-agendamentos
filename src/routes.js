@@ -16,7 +16,7 @@ router.put("/doctors/:id_doctor", controllerDoctors.updateDoctor)
 router.delete("/doctors/:id_doctor", controllerDoctors.deleteDoctor)
 
 // services
-router.get("/doctors/:id_doctor/service", controllerDoctors.getServices)
+router.get("/doctors/:id_doctor/service", middlewareToken.validateToken, controllerDoctors.getServices)
 
 // users
 router.post("/users/register", controllerUsers.insertUser)

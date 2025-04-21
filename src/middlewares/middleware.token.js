@@ -3,7 +3,7 @@ import serviceToken from '../services/service.token.js'
 
 function validateToken(req, res, next) {
     const authToken = req.headers.authorization // "Bearer tokenString"
-
+    console.log(authToken)
     if (!authToken) {
         return res.status(403).json({ error: "Token ausente" })
     }

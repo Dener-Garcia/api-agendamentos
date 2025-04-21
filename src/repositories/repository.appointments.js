@@ -9,7 +9,7 @@ async function insertAppointment(appointmentData) {
             booking_date,
             booking_hour)
         VALUES (?, ?, ?, ?, ?) 
-        RETURNING id_appointment
+        RETURNING *
     `
 
     const appointment = await query(sqlQuery, appointmentData)

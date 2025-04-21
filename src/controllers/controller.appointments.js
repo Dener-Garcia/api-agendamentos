@@ -11,6 +11,7 @@ async function insertAppointment(req, res) {
 
 async function getUserAppointments(req, res) {
     const { idUser } = req // vem da injecao do req.idUser do validate token
+    console.log(idUser)
 
     const appointments = await serviceAppointments.getUserAppointments(idUser)
     res.status(200).json(appointments)
