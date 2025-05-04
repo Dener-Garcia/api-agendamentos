@@ -25,8 +25,16 @@ async function deleteAppointment(req, res) {
     res.status(200).json(deleteAppointment)
 }
 
+
+async function getAdminAppointments(req, res) {
+    const {dt_Start, dt_End, id_doctor} = req.query
+
+    const appointments = await serviceAppointments.getAdminAppointments(dt_Start, dt_End, id_doctor)
+    res.status(200).json(appointments)
+}
 export default {
     getUserAppointments,
     insertAppointment,
-    deleteAppointment
+    deleteAppointment,
+    getAdminAppointments
 }

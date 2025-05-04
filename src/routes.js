@@ -32,4 +32,7 @@ router.get("/appointments", middlewareToken.validateToken, controllerAppointment
 router.post("/appointments", middlewareToken.validateToken, controllerAppointments.insertAppointment)
 router.delete("/appointments/:id_appointment", middlewareToken.validateToken, controllerAppointments.deleteAppointment)
 
+// appointments admin role
+router.get("/admin/appointments", middlewareToken.validateToken, controllerAppointments.getAdminAppointments)
+
 export default router
