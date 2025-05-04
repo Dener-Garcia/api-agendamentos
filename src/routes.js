@@ -23,6 +23,10 @@ router.post("/users/register", controllerUsers.insertUser)
 router.post("/users/login", controllerUsers.getUser)
 router.get("/users/profile", middlewareToken.validateToken, controllerUsers.getProfile)
 
+// users admin
+router.post("/admin/register", controllerUsers.insertUserAdmin)
+router.post("/admin/login", controllerUsers.getUserAdmin)
+
 // appointments
 router.get("/appointments", middlewareToken.validateToken, controllerAppointments.getUserAppointments)
 router.post("/appointments", middlewareToken.validateToken, controllerAppointments.insertAppointment)

@@ -39,10 +39,38 @@ async function getProfile(userId) {
     return profile[0]
 }
 
+async function getUserAdmin(email, password) {
+    let sqlQuery = `
+        SELECT * FROM admins
+        WHERE email = ?
+    `
 
+    const user = await query(sqlQuery, [email])
+
+    if (user.length === 0) {
+        return []
+    } else {
+        return user[0]
+    }
+
+}
+
+async function insertUserAdmin(userData) {
+
+    let sqlQuery = `
+    INSERT INTO admins(name, email, password) VALUES (?, ?, ?)
+    RETURNING id_admin, name
+`
+
+    const user = await query(sqlQuery, userData)
+
+    return user[0]
+}
 
 export default {
     insertUser,
     getUser,
-    getProfile
+    getProfile,
+    getUserAdmin,
+    insertUserAdmin
 }

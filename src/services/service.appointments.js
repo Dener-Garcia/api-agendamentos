@@ -4,7 +4,6 @@ async function insertAppointment(idUser, id_doctor, id_service, booking_date, bo
     const appointmentData = [idUser, id_doctor, id_service, booking_date, booking_hour]
 
     const appointments = await repositoryAppointments.insertAppointment(appointmentData)
-    console.log(appointments)
     return appointments
 }
 
