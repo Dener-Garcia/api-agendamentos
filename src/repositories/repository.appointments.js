@@ -51,7 +51,28 @@ async function deleteAppointment(idUser, id_appointment) {
     return id_appointment
 }
 
-async function getAdminAppointments() {
+async function getAdminAppointments(dt_Start, dt_End, id_doctor) {
+
+    let whereConditions = []
+    let values = []
+
+    if (dt_Start) {
+        whereConditions.push("appoint.booking_date >= ?");
+        values.push(dt_Start);
+    }
+
+    if (dt_End) {
+        whereConditions.push("appoint.booking_date <= ?");
+        values.push(dt_End);
+    }
+
+    if (id_doctor) {
+        whereConditions.push("appoint.id_doctor = ?");
+        values.push(id_doctor);
+    }
+
+    const whereClause = whereConditions.length ? "WHERE " + whereConditions.join(" AND ") : "";
+
     const sqlQuery = `
     SELECT
     appoint.id_appointment,
@@ -67,9 +88,10 @@ async function getAdminAppointments() {
     left JOIN doctors AS doct ON (doct.id_doctor = appoint.id_doctor)
     left JOIN users AS usr ON (usr.id_user = appoint.id_user)
     left JOIN doctors_services AS doctser ON (doctser.id_doctor = appoint.id_doctor AND doctser.id_service = appoint.id_service)
+    ${whereClause}
     ORDER BY appoint.booking_date DESC, appoint.booking_hour DESC
 `
-    const appointments = await query(sqlQuery, [])
+    const appointments = await query(sqlQuery, values)
     return appointments
 }
 
