@@ -55,6 +55,16 @@ async function getUserAdmin(email, password) {
 
 }
 
+async function getAllUsers() {
+    console.log("model all users")
+    let sqlQuery = `
+        SELECT id_user, name, email FROM users ORDER BY name
+    `
+    const users = await query(sqlQuery, [])
+
+    return users
+}
+
 async function insertUserAdmin(userData) {
 
     let sqlQuery = `
@@ -71,6 +81,7 @@ export default {
     insertUser,
     getUser,
     getProfile,
+    getAllUsers,
     getUserAdmin,
     insertUserAdmin
 }

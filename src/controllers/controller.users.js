@@ -38,6 +38,12 @@ async function getProfile(req, res) {
     res.status(200).json(profile)
 }
 
+async function getAllUsers(req, res){
+    const users = await serviceUsers.getAllUsers()
+
+    res.status(200).json(users)
+}
+
 async function getUserAdmin(req, res) {
     // em rotas login usamos POST para ter segurança do HTTPS ao enviar a requisição com a senha pelo body e não pela Url como fazemos com metodos GET.
 
@@ -51,7 +57,7 @@ async function getUserAdmin(req, res) {
         res.status(401).json({ Message: "Usuário ou senha incorretos" })
     } else {
         res.status(200).json({
-            id: user.id_user,
+            id: user.id_admin,
             user: user.name,
             userMail: user.email,
             token: user.token
@@ -73,6 +79,7 @@ export default {
     insertUser,
     getUser,
     getProfile,
+    getAllUsers,
     getUserAdmin,
     insertUserAdmin,
 }

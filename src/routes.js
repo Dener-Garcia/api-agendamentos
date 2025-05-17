@@ -22,6 +22,8 @@ router.get("/doctors/:id_doctor/service", middlewareToken.validateToken, control
 router.post("/users/register", controllerUsers.insertUser)
 router.post("/users/login", controllerUsers.getUser)
 router.get("/users/profile", middlewareToken.validateToken, controllerUsers.getProfile)
+router.get("/users/getAll", middlewareToken.validateToken, controllerUsers.getAllUsers)
+
 
 // users admin
 router.post("/admin/register", controllerUsers.insertUserAdmin)

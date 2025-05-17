@@ -17,7 +17,7 @@ collection:
         meta:
           id: req_d374865b0d5c4a2a8e3f48b1ef0a4de8
           created: 1743881964262
-          modified: 1744330491543
+          modified: 1746905131695
           isPrivate: false
           sortKey: -1743987314507
         method: GET
@@ -31,7 +31,7 @@ collection:
             value: insomnia/11.0.1
         authentication:
           type: bearer
-          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzZXIiOjE2LCJpYXQiOjE3NDQzMzAzNTEsImV4cCI6MTc0NDkzNTE1MX0.VrW0_u6fzA4eIVRFFulsdK_tPNNcEwjpNR4ZO6WGejk
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzZXIiOjUsImlhdCI6MTc0NjkwMDQzMSwiZXhwIjoxNzQ3NTA1MjMxfQ.mLd-zEsCJEAF4u7rmH1zTcolFuRWiqhR11y3DcW9y04
           disabled: false
         settings:
           renderRequestBody: true
@@ -167,9 +167,9 @@ collection:
         meta:
           id: req_18b8f19d11e9404cbc1945b72bf88753
           created: 1743987338196
-          modified: 1744327481604
+          modified: 1746389181094
           isPrivate: false
-          sortKey: -1743987342518
+          sortKey: -1743987342593
         method: POST
         body:
           mimeType: application/json
@@ -197,7 +197,7 @@ collection:
         meta:
           id: req_a081bbb41a2a4b759a0f418ce484143c
           created: 1744327358198
-          modified: 1744556823564
+          modified: 1746914124743
           isPrivate: false
           sortKey: -1743987342618
         method: POST
@@ -205,7 +205,7 @@ collection:
           mimeType: application/json
           text: |-
             {
-            	"email" : "dag11@gmail.com",
+            	"email" : "daguser@gmail.com",
             	"password" : "dag"
             }
         headers:
@@ -226,7 +226,7 @@ collection:
         meta:
           id: req_af001ba8f2e549deb67b53d5b9ae558b
           created: 1744565382717
-          modified: 1744565566711
+          modified: 1746388283486
           isPrivate: false
           sortKey: -1743987342418
         method: GET
@@ -235,7 +235,66 @@ collection:
             value: insomnia/11.0.1
         authentication:
           type: bearer
-          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzZXIiOjE4LCJpYXQiOjE3NDQ1NTY4MjQsImV4cCI6MTc0NTE2MTYyNH0._fSaA3aooqf2Tyr3CySDz3xwrpc-W3G3cjJY2yj516g
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzZXIiOjgsImlhdCI6MTc0NjM4ODI2MiwiZXhwIjoxNzQ2OTkzMDYyfQ.bkvJ2s7UUABPEPQpk4LRWeNeJXnsQ6JtAWYzIlCGVMg
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://144.22.160.3:3003/admin/register
+        name: Users Admin create a new
+        meta:
+          id: req_b6250f82275741ed96193f0400f40359
+          created: 1746389104283
+          modified: 1746389204811
+          isPrivate: false
+          sortKey: -1743987342468
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"name" : "dener Admin",
+            	"email" : "dagadmin@gmail.com",
+            	"password" : "dag"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://144.22.160.3:3003/admin/login
+        name: Users Admin login
+        meta:
+          id: req_7a52c3a218724a95a6629d70ed97a1f0
+          created: 1746389117818
+          modified: 1746389381467
+          isPrivate: false
+          sortKey: -1743987342568
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"email" : "dagadmin@gmail.com",
+            	"password" : "dag"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.0.1
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -256,7 +315,7 @@ collection:
         meta:
           id: req_e8dad7cf57714423a9d243db8a34184e
           created: 1744500272467
-          modified: 1744567788121
+          modified: 1746914156848
           isPrivate: false
           sortKey: -1744491585851.5
         method: GET
@@ -265,7 +324,7 @@ collection:
             value: insomnia/11.0.1
         authentication:
           type: bearer
-          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzZXIiOjE4LCJpYXQiOjE3NDQ1NTY4MjQsImV4cCI6MTc0NTE2MTYyNH0._fSaA3aooqf2Tyr3CySDz3xwrpc-W3G3cjJY2yj516g
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzZXIiOjQ3LCJpYXQiOjE3NDY5MTQxNDYsImV4cCI6MTc0NzUxODk0Nn0.VTzFaUeYyhhF0w9XBcqNwvj8AAhGImbOeBUqIcN0Uqk
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -279,7 +338,7 @@ collection:
         meta:
           id: req_4115bbbba9d64d01beffcf39d9405230
           created: 1744562826063
-          modified: 1744563333644
+          modified: 1746835798539
           isPrivate: false
           sortKey: -1744491585901.5
         method: POST
@@ -288,9 +347,9 @@ collection:
           text: |-
             {
             	"id_doctor": 11,
-            	"id_service": 2,
-            	"booking_date": "2025-10-21",
-            	"booking_hour": "12:23"
+            	"id_service": 1,
+            	"booking_date": "2025-03-10",
+            	"booking_hour": "10:43"
             }
         headers:
           - name: Content-Type
@@ -299,7 +358,7 @@ collection:
             value: insomnia/11.0.1
         authentication:
           type: bearer
-          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzZXIiOjE4LCJpYXQiOjE3NDQ1NTY4MjQsImV4cCI6MTc0NTE2MTYyNH0._fSaA3aooqf2Tyr3CySDz3xwrpc-W3G3cjJY2yj516g
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzZXIiOjgsImlhdCI6MTc0NjM4ODI2MiwiZXhwIjoxNzQ2OTkzMDYyfQ.bkvJ2s7UUABPEPQpk4LRWeNeJXnsQ6JtAWYzIlCGVMg
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -323,6 +382,42 @@ collection:
         authentication:
           type: bearer
           token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzZXIiOjE4LCJpYXQiOjE3NDQ1NTY4MjQsImV4cCI6MTc0NTE2MTYyNH0._fSaA3aooqf2Tyr3CySDz3xwrpc-W3G3cjJY2yj516g
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://144.22.160.3:3003/admin/appointments
+        name: Appointment Admin return all appointments query params
+        meta:
+          id: req_fc29ba22d8144b18bbe26e51c11f993d
+          created: 1746390223075
+          modified: 1746914142456
+          isPrivate: false
+          sortKey: -1744491585701.5
+        method: GET
+        parameters:
+          - id: pair_ebc40f1aedf6419097e0f5ebde83ebb2
+            name: dt_Start
+            value: 2025-05-01
+            disabled: true
+          - id: pair_acea053726f24ea68ebf80ae36b42e36
+            name: dt_End
+            value: 2025-12-31
+            disabled: true
+          - id: pair_c82f269ed9f6428281721b5a804b34e7
+            name: id_doctor
+            value: "12"
+            disabled: true
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.1
+        authentication:
+          type: bearer
+          token: '"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZFVzZXIiOjQ3LCJpYXQiOjE3NDY5MTQxMjYsImV4cCI6MTc0NzUxODkyNn0.Lv_9EnYRE0TjU3sYiOduldG57eGAWC2NUkMK3q3_rXs'
         settings:
           renderRequestBody: true
           encodeUrl: true

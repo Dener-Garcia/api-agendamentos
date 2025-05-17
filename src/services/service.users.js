@@ -35,16 +35,23 @@ async function getProfile(idUser) {
     return profile
 }
 
+async function getAllUsers(){
+    const users = await repositoryUsers.getAllUsers()
+
+    return users
+}
+
 async function getUserAdmin(email, password) {
 
     const user = await repositoryUsers.getUserAdmin(email, password)
+    console.log(user)
 
     const checkPassword = await bcrypt.compare(password, user.password)
 
     if (user.length == 0 || !checkPassword) {
         return []
     } else {
-        const token = serviceToken.createToken(user.id_user)
+        const token = serviceToken.createToken(user.id_admin)
         user.token = token
         return user
     }
@@ -57,7 +64,7 @@ async function insertUserAdmin(name, email, password) {
 
     const user = await repositoryUsers.insertUserAdmin(userData)
 
-    const token = serviceToken.createToken(user.id_user)
+    const token = serviceToken.createToken(user.id_admin)
     user.token = token
 
     return user
@@ -67,6 +74,7 @@ export default {
     insertUser,
     getUser,
     getProfile,
+    getAllUsers,
     getUserAdmin,
     insertUserAdmin,
 }
