@@ -12,6 +12,11 @@ async function getUserAppointments(idUser) {
     return userAppointment
 }
 
+async function getSelectedAppointment(id_appointment) {
+    const userAppointment = await repositoryAppointments.getSelectedAppointment(id_appointment)
+    return userAppointment
+}
+
 async function deleteAppointment(idUser, id_appointment) {
     const deleteAppointment = await repositoryAppointments.deleteAppointment(idUser, id_appointment)
     return deleteAppointment
@@ -24,6 +29,7 @@ async function getAdminAppointments(dt_Start, dt_End, id_doctor) {
 
 export default {
     getUserAppointments,
+    getSelectedAppointment,
     insertAppointment,
     deleteAppointment,
     getAdminAppointments

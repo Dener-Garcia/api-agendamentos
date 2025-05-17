@@ -17,6 +17,13 @@ async function getUserAppointments(req, res) {
     res.status(200).json(appointments)
 }
 
+async function getSelectedAppointment(req, res) {
+    const { id_appointment } = req.params
+
+    const appointment = await serviceAppointments.getSelectedAppointment(id_appointment)
+    res.status(200).json(appointment)
+}
+
 async function deleteAppointment(req, res) {
     const { idUser } = req
     const { id_appointment } = req.params
@@ -36,6 +43,7 @@ async function getAdminAppointments(req, res) {
 }
 export default {
     getUserAppointments,
+    getSelectedAppointment,
     insertAppointment,
     deleteAppointment,
     getAdminAppointments

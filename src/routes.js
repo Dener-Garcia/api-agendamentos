@@ -31,6 +31,7 @@ router.post("/admin/login", controllerUsers.getUserAdmin)
 
 // appointments
 router.get("/appointments", middlewareToken.validateToken, controllerAppointments.getUserAppointments)
+router.get("/appointments/:id_appointment", middlewareToken.validateToken, controllerAppointments.getSelectedAppointment)
 router.post("/appointments", middlewareToken.validateToken, controllerAppointments.insertAppointment)
 router.delete("/appointments/:id_appointment", middlewareToken.validateToken, controllerAppointments.deleteAppointment)
 

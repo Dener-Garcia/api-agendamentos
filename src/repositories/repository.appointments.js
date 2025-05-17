@@ -26,6 +26,7 @@ async function getUserAppointments(idUser) {
     appoint.booking_date,
     appoint.booking_hour,
     usr.name AS user,
+    usr.id_user,
     doctser.price
     FROM appointments AS appoint 
     left JOIN services AS serv ON(serv.id_services = appoint.id_service)
@@ -37,6 +38,29 @@ async function getUserAppointments(idUser) {
 `
     const appointments = await query(sqlQuery, [idUser])
     return appointments
+}
+
+async function getSelectedAppointment(id_appointment) {
+    const sqlQuery = `
+    SELECT
+    appoint.id_appointment,
+    serv.description,
+    doct.name AS doctor,
+    doct.specialty,
+    appoint.booking_date,
+    appoint.booking_hour,
+    usr.name AS user,
+    usr.id_user,
+    doctser.price
+    FROM appointments AS appoint 
+    left JOIN services AS serv ON(serv.id_services = appoint.id_service)
+    left JOIN doctors AS doct ON (doct.id_doctor = appoint.id_doctor)
+    left JOIN users AS usr ON (usr.id_user = appoint.id_user)
+    left JOIN doctors_services AS doctser ON (doctser.id_doctor = appoint.id_doctor AND doctser.id_service = appoint.id_service)
+    WHERE appoint.id_appointment = ?
+`
+    const appointment = await query(sqlQuery, [id_appointment])
+    return appointment[0]
 }
 
 async function deleteAppointment(idUser, id_appointment) {
@@ -79,11 +103,13 @@ async function getAdminAppointments(dt_Start, dt_End, id_doctor) {
     const sqlQuery = `
     SELECT
     appoint.id_appointment,
-    serv.description,
-    doct.name AS doctor,
-    doct.specialty,
     appoint.booking_date,
     appoint.booking_hour,
+    serv.description,
+    serv.id_services,
+    doct.name AS doctor,
+    doct.id_doctor,
+    doct.specialty,
     usr.id_user,
     usr.name AS user,
     doctser.price
@@ -101,6 +127,7 @@ async function getAdminAppointments(dt_Start, dt_End, id_doctor) {
 
 export default {
     getUserAppointments,
+    getSelectedAppointment,
     insertAppointment,
     deleteAppointment,
     getAdminAppointments
