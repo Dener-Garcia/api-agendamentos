@@ -51,6 +51,5 @@ export default {
     insertDoctor,
     updateDoctor,
     deleteDoctor,
-
     getServices
 }

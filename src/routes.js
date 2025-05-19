@@ -30,9 +30,10 @@ router.post("/admin/register", controllerUsers.insertUserAdmin)
 router.post("/admin/login", controllerUsers.getUserAdmin)
 
 // appointments
+router.post("/appointments", middlewareToken.validateToken, controllerAppointments.insertAppointment)
 router.get("/appointments", middlewareToken.validateToken, controllerAppointments.getUserAppointments)
 router.get("/appointments/:id_appointment", middlewareToken.validateToken, controllerAppointments.getSelectedAppointment)
-router.post("/appointments", middlewareToken.validateToken, controllerAppointments.insertAppointment)
+router.put("/appointments/:id_appointment", middlewareToken.validateToken, controllerAppointments.editAppointment)
 router.delete("/appointments/:id_appointment", middlewareToken.validateToken, controllerAppointments.deleteAppointment)
 
 // appointments admin role

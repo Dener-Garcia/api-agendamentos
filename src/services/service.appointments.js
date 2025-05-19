@@ -1,6 +1,12 @@
 import repositoryAppointments from "../repositories/repository.appointments.js"
 
-async function insertAppointment(idUser, id_doctor, id_service, booking_date, booking_hour){
+async function insertAppointment(idUser, id_user, id_doctor, id_service, booking_date, booking_hour){
+    
+    // verifica se o apontamento foi criado pelo painel administrativo web da clinica.
+    if(id_user !== undefined){
+        idUser = id_user
+    } 
+
     const appointmentData = [idUser, id_doctor, id_service, booking_date, booking_hour]
 
     const appointments = await repositoryAppointments.insertAppointment(appointmentData)
@@ -17,6 +23,11 @@ async function getSelectedAppointment(id_appointment) {
     return userAppointment
 }
 
+async function editAppointment(id_appointment, id_user, id_doctor, id_services, booking_date, booking_hour) {
+    const updateAppointment = await repositoryAppointments.editAppointment(id_appointment, id_user, id_doctor, id_services, booking_date, booking_hour)
+    return updateAppointment
+}
+
 async function deleteAppointment(idUser, id_appointment) {
     const deleteAppointment = await repositoryAppointments.deleteAppointment(idUser, id_appointment)
     return deleteAppointment
@@ -31,6 +42,7 @@ export default {
     getUserAppointments,
     getSelectedAppointment,
     insertAppointment,
+    editAppointment,
     deleteAppointment,
     getAdminAppointments
 }
